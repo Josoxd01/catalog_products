@@ -17,8 +17,11 @@
       <textarea id="descripcionEdit" [(ngModel)]="this.descripcion"></textarea>
     </div>
 
-    <div class="form-group">
-      <button (click)="agregarProducto()">Guardar Cambios</button>
+    <div class="form-group" *ngIf="!edit_product">
+      <button (click)="agregarProducto()">Guardar Producto</button>
+    </div>
+    <div class="form-group" *ngIf="edit_product">
+      <button (click)="ActualizarProducto()">Actualizar Producto</button>
     </div>
   </div>
   <br>
@@ -30,6 +33,9 @@
         <th>Nombre</th>
         <th>Precio</th>
         <th>Descripción</th>
+        <th>Editar</th>
+        <th>Eliminar</th>
+
       </tr>
     </thead>
     <tbody>
@@ -38,8 +44,9 @@
         <td>{{ producto.nombre }}</td>
         <td>{{ producto.precio }}</td>
         <td>{{ producto.descripcion }}</td>
-        <td><button (click)="eliminarProducto(producto.id)">eliminar</button></td>
-        <!-- <td><button (click)="actualizarProducto(producto.id)">Actualizar</button></td> -->
+        <td><button (click)="cargarProducto(producto.id)" class="boton-actualizar">Actualizar</button></td>
+        <td><button (click)="eliminarProducto(producto.id)" class="boton-eliminar">Eliminar</button></td>
+
 
       </tr>
     </tbody>

@@ -65,3 +65,13 @@ td {
 tr:nth-child(odd) {
     background-color: #f9f9f9;
 }
+
+.boton-eliminar {
+    background-color: red;
+    color: white;
+}
+
+.boton-actualizar {
+    background-color: green;
+    color: white;
+}
